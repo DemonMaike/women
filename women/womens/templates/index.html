@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul>
+{% for women in womens %}
+<li>{{women}}</li>
+<br>
+{% endfor %}
+<ul>
+{% endblock %}
