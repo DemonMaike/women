@@ -1,6 +1,6 @@
 import re
 from turtle import title
-from django.http import HttpResponse
+from django.http import Http404, HttpResponse
 from django.shortcuts import render
 from .models import *
 
@@ -65,6 +65,9 @@ def login(request):
 def show_category(request, cat_id):
     womens = Women.objects.filter(cat_id=cat_id)
     cats = Category.objects.all()
+    
+    if len(womens) == 0:
+        raise Http404()
     
     context = {
         'womens': womens,

@@ -4,3 +4,4 @@ from django.apps import AppConfig
 class WomensConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'womens'
+    verbose_name = 'Женщины мира'

@@ -3,7 +3,16 @@
 {% block content %}
 <ul class="list-articles">
 	{% for women in womens %}
-			<li><h2>{{women.title}}</h2>
+			<li>
+				<div class="article-panel">
+					<p class="first">Категория: {{women.cat}}</p>
+					<p class="last">Дата создания: {{women.time_update|date:'d-m-Y H:i:s'}} </p>
+				</div>
+		
+		{% if women.photo %}
+		<p><img class="img-article-left thumb" src="{{women.photo.url}}" alt="упс"></p>
+		{% endif %}		
+		<h2>{{women.title}}</h2>
 	{% autoescape on %}
 	{{women.content|linebreaks|truncatewords:50}}
 	{% endautoescape %}
