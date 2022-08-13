@@ -1,15 +1,18 @@
+from multiprocessing import context
 import re
 from turtle import title
 from django.http import Http404, HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import *
+from .forms import *
 
 # List for site menu
 
 
 
 def womens(request):
-    womens = Women.objects.all()
+    womens = Women.objects.all().order_by('-time_create')
+
     context = {
         'womens': womens,
         'cat_selected':0,
@@ -17,8 +20,23 @@ def womens(request):
     return render(request, 'womens.html', context)
 
 
-def cathigories(request):
-    return render(request, 'cathigories.html')
+def add_post(request):
+    if request.method == "POST":
+        form = CreateWomen(request.POST)
+        if form.is_valid():
+            try:
+                Women.objects.create(**form.cleaned_data)
+                return redirect ('womens')
+            except:
+                form.add_error(None,'Ошибка добавления поста')
+    else:
+        form = CreateWomen()
+    
+    context = {
+        'title': 'Добавление статьи',
+        'form': form
+    }
+    return render(request, 'add_post.html', context)
   
     
 def contacts(request):   

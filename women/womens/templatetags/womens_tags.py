@@ -5,7 +5,7 @@ from womens.models import *
 register = template.Library()
 
 menu = [{'title':'O сайте', 'url_name': 'about'},
-        {'title':'Категории', 'url_name': 'cathigories'},
+        {'title':'Добавить статью', 'url_name': 'add_post'},
         {'title':'Контакты', 'url_name': 'contacts'},
         {'title': 'Женщины', 'url_name':'womens'},
         {'title':'Войти', 'url_name': 'login'},

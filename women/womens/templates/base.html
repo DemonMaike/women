@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{{header}}</title>
+	<title>{{ title }}</title>
 	<link type="text/css" href="{% static '/css/style.css' %}" rel="stylesheet" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="shortcut icon" href="{% static '/images/main.ico' %}" type="image/x-icon"/>
@@ -13,6 +13,7 @@
 <body>
 <table class="table-page" border=0 cellpadding="0" cellspacing="0">
 <tr><td valign=top>
+	<!-- Поле хеадера -->
 {% block mainmenu %}
 		<div class="header">
 			<ul id="mainmenu" class="mainmenu">
@@ -22,6 +23,7 @@
 			<div class="clear"></div>
 		</div>
 {% endblock mainmenu %}
+<!-- Конец хеадера -->
 
 
 <table class="table-content" border=0 cellpadding="0" cellspacing="0">
