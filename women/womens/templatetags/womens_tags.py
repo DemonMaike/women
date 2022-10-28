@@ -8,7 +8,6 @@ menu = [{'title':'O сайте', 'url_name': 'about'},
         {'title':'Добавить статью', 'url_name': 'add_post'},
         {'title':'Контакты', 'url_name': 'contacts'},
         {'title': 'Женщины', 'url_name':'womens'},
-        {'title':'Войти', 'url_name': 'login'},
         ]
 
 @register.simple_tag(name='get_cat')
