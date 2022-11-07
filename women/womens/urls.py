@@ -9,6 +9,6 @@ urlpatterns = [
     path('contacts/', contacts, name = 'contacts'),
     path('post/<slug:slug_id>/', Show_post.as_view(), name = 'post'),
     path('login/', login, name = 'login'),
+    path('register/', RegisterUser.as_view(), name='register'),
     path('category/<slug:slug_id>/', WomenCategory.as_view(), name = 'category'),
-    path('register/', login, name='register'),
     ]
