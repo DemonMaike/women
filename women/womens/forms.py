@@ -4,7 +4,7 @@ from tkinter import Widget
 from django import forms
 from .models import *
 from django.core.exceptions import ValidationError
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
 class CreateWomen(forms.ModelForm):
@@ -36,3 +36,7 @@ class RegisterUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
+        
+class AuthUserForm(AuthenticationForm):
+    username = forms.CharField(label='Логин', widget = forms.TextInput(attrs={'class':'form-input'}))
+    password = forms.CharField(label='Пароль', widget = forms.TextInput(attrs={'class': 'form-input'}))

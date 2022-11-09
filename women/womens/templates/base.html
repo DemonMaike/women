@@ -19,7 +19,11 @@
 			<ul id="mainmenu" class="mainmenu">
 			<li class="logo"><a href="{% url 'womens' %}"><div class="logo"></div></a></li>
             	{% show_menu %}
-			<li class="last"><a href="{% url 'register' %}">Регестрация</a> | <a href="{% url 'login' %}">Войти</a></li>
+				{% if request.user.is_authenticated %}
+				<li class="last"> {{ user.username }} | <a href="{% url 'logout' %}">Выйти</a></li>	
+				{% else %}
+				<li class="last"><a href="{% url 'register' %}">Регестрация</a> | <a href="{% url 'login' %}">Войти</a></li>
+				{% endif %}
 			</ul>
 			
 			<div class="clear"></div>
